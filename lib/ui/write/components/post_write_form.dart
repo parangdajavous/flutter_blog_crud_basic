@@ -1,11 +1,15 @@
+import 'package:blog/ui/list/post_list_vm.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class PostWriteForm extends StatelessWidget {
+class PostWriteForm extends ConsumerWidget {
   final _title = TextEditingController();
   final _content = TextEditingController();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    PostListVM vm = ref.read(postListProvider.notifier);
+
     return Form(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -21,10 +25,9 @@ class PostWriteForm extends StatelessWidget {
                 onPressed: () {
                   String title = _title.text.trim();
                   String content = _content.text.trim();
-                  // vm 에게 전달해야 함.
+                  vm.write(title, content);
                 },
-                child: Text("글쓰기")
-            ),
+                child: Text("글쓰기")),
           ],
         ),
       ),

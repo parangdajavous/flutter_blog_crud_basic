@@ -1,16 +1,23 @@
-# blog
+#  Flutter CRUD 기초
 
-A new Flutter project.
+## 게시글 목록
 
-## Getting Started
+- 화면에 id, title만 출력
+- PostListVM 만들기
 
-This project is a starting point for a Flutter application.
+## 게시글 쓰기
 
-A few resources to get you started if this is your first Flutter project:
+- TextEditingController 사용
+- PostListVM 에서 글 쓰기 하기
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 게시글 상세보기
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- PostList 화면에서 Post 객체 전달해서 출력하기
+- PostDetail 화면은 ViewModel 이 없다
+
+## 게시글 삭제하기
+- PostListVM에 삭제하기 요청
+- PostList 화면에 상태 변경
+
+## 게시글 수정하기
+- 없음

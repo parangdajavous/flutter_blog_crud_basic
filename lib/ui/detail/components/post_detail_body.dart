@@ -1,11 +1,17 @@
+import 'package:blog/data/post.dart';
+import 'package:blog/ui/list/post_list_vm.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class PostDetailBody extends StatelessWidget {
-
+class PostDetailBody extends ConsumerWidget {
+  Post post;
+  PostDetailBody(this.post);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    PostListVM vm = ref.read(postListProvider.notifier);
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
@@ -14,14 +20,16 @@ class PostDetailBody extends StatelessWidget {
             alignment: Alignment.centerRight,
             child: ElevatedButton(
               child: Icon(CupertinoIcons.trash_fill),
-              onPressed: (){},
+              onPressed: () {
+                vm.deleteOne(post.id);
+              },
             ),
           ),
           SizedBox(height: 10),
-          Text("id : 1", style: TextStyle(fontSize: 20)),
-          Text("title : 제목입니다."),
-          Text("content : 내용입니다."),
-          Text("createdAt : 2024-08-01"),
+          Text("${post.id}", style: TextStyle(fontSize: 20)),
+          Text("${post.title}"),
+          Text("${post.content}"),
+          Text("${post.createdAt}"),
         ],
       ),
     );
