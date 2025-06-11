@@ -31,7 +31,7 @@ class PostListBody extends ConsumerWidget {
               );
             },
             separatorBuilder: (context, index) => Divider(),
-            itemCount: 20),
+            itemCount: model.posts.length),
       );
     }
   }
